@@ -1,0 +1,170 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/layout1"
+    android:background="@mipmap/parchment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/IntentButtons">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2D6"
+            android:layout_weight="1"
+            android:id="@+id/TwoD6Intent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pos."
+            android:layout_weight="1"
+            android:id="@+id/positionIntent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Att."
+            android:id="@+id/attackIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Def."
+            android:id="@+id/defenseIntent"
+            android:layout_weight="1"
+            android:paddingRight="0dp"
+            android:paddingLeft="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Misc."
+            android:id="@+id/miscIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="2D6"
+        android:id="@+id/title2d6"
+        android:textSize="50dp"
+        android:layout_below="@+id/IntentButtons"
+        android:layout_alignLeft="@+id/plusOne"
+        android:layout_alignStart="@+id/plusOne" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll!"
+        android:id="@+id/btnRoll2d6"
+        android:textSize="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/title2d6"
+        android:layout_alignLeft="@+id/title2d6"
+        android:layout_alignStart="@+id/title2d6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/RawResultsText"
+        android:textColorLink="#010101"
+        android:textColor="#010101"
+        android:layout_centerInParent="true" />
+
+    //ellipsize and center in parent were added
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/txtModifier"
+        android:layout_centerInParent="true"
+        android:ellipsize="start"
+        android:layout_below="@+id/RawResultsText"
+
+        android:layout_marginTop="32dp"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:textSize="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="+/-"
+        android:id="@+id/plusOne"
+        android:layout_alignBaseline="@+id/txtModifier"
+        android:layout_alignBottom="@+id/txtModifier"
+        android:layout_toLeftOf="@+id/txtModifier"
+        android:layout_toStartOf="@+id/txtModifier"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" Modifier"
+        android:id="@+id/textView"
+        android:layout_below="@+id/plusOne"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/GrandTotal"
+        android:layout_marginTop="23dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#010101"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/CritField"
+        android:layout_below="@+id/GrandTotal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        android:textColor="#ff0004" />
+
+</RelativeLayout>

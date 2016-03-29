@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@mipmap/parchment"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:id="@+id/IntentButtons">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2D6"
+            android:layout_weight="1"
+            android:id="@+id/TwoD6Intent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pos."
+            android:layout_weight="1"
+            android:id="@+id/positionIntent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Att."
+            android:id="@+id/attackIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Def."
+            android:id="@+id/defenseIntent"
+            android:layout_weight="1"
+            android:paddingRight="0dp"
+            android:paddingLeft="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Misc."
+            android:id="@+id/miscIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Defense"
+            android:id="@+id/TitleText"
+            android:textSize="50dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Picture">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="235dp"
+            android:id="@+id/defensePic"
+            android:src="@drawable/defense"
+            android:scaleType="fitXY"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Body">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/DamageInput"
+            android:layout_weight=".50"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingLeft="10dp">
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/damageInput"
+                android:inputType="number"
+
+                android:textSize="25dp"
+                android:layout_weight=".2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="d"
+                android:id="@+id/d"
+                android:textStyle="bold"
+                android:textIsSelectable="false"
+                android:textSize="25dp"
+                android:layout_weight=".25" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll!"
+                android:id="@+id/btnRollD"
+                android:textSize="25dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/resultsFrame">
+
+            <ImageView
+                android:id="@+id/shieldPic"
+                android:layout_width="101.6dp"
+                android:layout_height="78.4dp"
+                android:src="@drawable/shield"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/dTotal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:textSize="40dp"
+                android:gravity="center"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

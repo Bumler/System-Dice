@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@mipmap/parchment"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:id="@+id/IntentButtons">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2D6"
+            android:layout_weight="1"
+            android:id="@+id/TwoD6Intent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pos."
+            android:layout_weight="1"
+            android:id="@+id/positionIntent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Att."
+            android:id="@+id/attackIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Def."
+            android:id="@+id/defenseIntent"
+            android:layout_weight="1"
+            android:paddingRight="0dp"
+            android:paddingLeft="0dp" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Misc."
+            android:id="@+id/miscIntent"
+            android:layout_weight="1"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Position"
+            android:id="@+id/TitleText"
+            android:textSize="50dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Button"
+        android:paddingTop="10dp">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Roll!"
+            android:id="@+id/btnRoll3d6"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Body">
+
+        <ImageView
+            android:layout_height="225dp"
+            android:layout_width="225dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:id="@+id/PositionPic"
+            android:src="@drawable/position"
+            android:paddingLeft="15dp"
+            android:layout_gravity="top"
+            android:paddingTop="5dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+
+
+            android:id="@+id/PositionResults">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="X"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:id="@+id/Res1"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="X"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:id="@+id/Res2"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="X"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:id="@+id/Res3"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="X"
+                android:textStyle="bold"
+                android:textSize="35dp"
+                android:textColor="#010101"
+                android:id="@+id/Total"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:paddingRight="15dp"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Results"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/solid_color_shape"
+            android:textColor="#010101"
+            android:layout_gravity="center_horizontal|top"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textIsSelectable="false"
+            android:layout_weight="1"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ResultName"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/solid_color_shape115"
+            android:textColor="#ff0004"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:paddingTop="15dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ResultMod"
+            android:singleLine="false" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
