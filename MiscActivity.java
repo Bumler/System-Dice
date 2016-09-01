@@ -1,6 +1,7 @@
 package com.example.isstech.systemdice;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +39,9 @@ public class MiscActivity extends Activity implements View.OnClickListener{
     //--------------------------------------------------------------------------------
     //The intent buttons included in every .java
     private void portalInit() {
+        goToMisc = (Button) findViewById(R.id.miscIntent);
+        goToMisc.setBackgroundColor(Color.YELLOW);
+
         //go to position
         goToPosition = (Button) findViewById(R.id.positionIntent);
         goToPosition.setOnClickListener(new View.OnClickListener() {
@@ -76,14 +80,14 @@ public class MiscActivity extends Activity implements View.OnClickListener{
             }
         });
 
-        goToMisc = (Button) findViewById(R.id.miscIntent);
-        goToMisc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MiscActivity.this, MiscActivity.class);
-                startActivity(i);
-            }
-        });
+//        goToMisc = (Button) findViewById(R.id.miscIntent);
+//        goToMisc.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(MiscActivity.this, MiscActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     @Override

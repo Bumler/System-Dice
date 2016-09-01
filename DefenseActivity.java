@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,6 +67,9 @@ public class DefenseActivity extends Activity implements View.OnClickListener
     }
 
     private void portalInit() {
+        goToDefense = (Button) findViewById(R.id.defenseIntent);
+        goToDefense.setBackgroundColor(Color.YELLOW);
+
         //go to position
         goToPosition = (Button) findViewById(R.id.positionIntent);
         goToPosition.setOnClickListener(new View.OnClickListener() {
@@ -95,14 +99,14 @@ public class DefenseActivity extends Activity implements View.OnClickListener
             }
         });
 
-        goToDefense = (Button) findViewById(R.id.defenseIntent);
-        goToDefense.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(DefenseActivity.this, DefenseActivity.class);
-                startActivity(i);
-            }
-        });
+//        goToDefense = (Button) findViewById(R.id.defenseIntent);
+//        goToDefense.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(DefenseActivity.this, DefenseActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         goToMisc = (Button) findViewById(R.id.miscIntent);
         goToMisc.setOnClickListener(new View.OnClickListener() {

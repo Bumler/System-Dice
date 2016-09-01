@@ -2,6 +2,7 @@ package com.example.isstech.systemdice;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -101,15 +102,17 @@ public class PositionActivity extends Activity implements View.OnClickListener {
     //--------------------------------------------------------------------------------
     //The intent buttons included in every .java
     private void portalInit() {
-        //go to position
         goToPosition = (Button) findViewById(R.id.positionIntent);
-        goToPosition.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(PositionActivity.this, PositionActivity.class);
-                startActivity(i);
-            }
-        });
+        goToPosition.setBackgroundColor(Color.YELLOW);
+//        //go to position
+//        goToPosition = (Button) findViewById(R.id.positionIntent);
+//        goToPosition.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(PositionActivity.this, PositionActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         //go to 2d6
         goTo2d6 = (Button) findViewById(R.id.TwoD6Intent);

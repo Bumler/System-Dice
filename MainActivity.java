@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     //---------------------------
     //Portal variables
+    private Button goTo2d6;
     private Button goToPosition;
     private Button goToAttack;
     private Button goToDefense;
@@ -63,6 +65,9 @@ public class MainActivity extends Activity implements View.OnClickListener{
     //The intent buttons included in every .java
     private void portalInit()
     {
+        goTo2d6 = (Button) findViewById(R.id.TwoD6Intent);
+        goTo2d6.setBackgroundColor(Color.YELLOW);
+
         goToPosition = (Button) findViewById(R.id.positionIntent);
         goToPosition.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,6 +74,8 @@ public class AttackActivity extends Activity implements View.OnClickListener
     }
 
     private void portalInit() {
+        goToAttack = (Button) findViewById(R.id.attackIntent);
+        goToAttack.setBackgroundColor(Color.YELLOW);
         //go to position
         goToPosition = (Button) findViewById(R.id.positionIntent);
         goToPosition.setOnClickListener(new View.OnClickListener() {
@@ -93,14 +96,14 @@ public class AttackActivity extends Activity implements View.OnClickListener
             }
         });
 
-        goToAttack = (Button) findViewById(R.id.attackIntent);
-        goToAttack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AttackActivity.this, AttackActivity.class);
-                startActivity(i);
-            }
-        });
+//        goToAttack = (Button) findViewById(R.id.attackIntent);
+//        goToAttack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(AttackActivity.this, AttackActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         goToDefense = (Button) findViewById(R.id.defenseIntent);
         goToDefense.setOnClickListener(new View.OnClickListener() {
@@ -125,19 +128,25 @@ public class AttackActivity extends Activity implements View.OnClickListener
 
     dice dDice;
 
+    boolean first = true;
     @Override
     public void onClick(View view)
     {
         String dieNum = dice.getText().toString();
         update(dieNum);
 
-        //explode.setEnabled(true);
+        if (!first){
+            explode.setEnabled(true);
+        }
 
         //set dice to 0 if no number is given
         if(dice.getText().length() == 0)
         {
             dieNum = "0";
         }
+
+        first = false;
+
         //number of attack dice
         D = Integer.parseInt(dieNum);
 
