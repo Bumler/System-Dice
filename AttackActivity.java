@@ -29,6 +29,8 @@ public class AttackActivity extends Activity implements View.OnClickListener
     private TextView damageBreakdown;
     private TextView dTotal;
 
+    private View screen;
+
     private Button explode;
     private Button crit;
     private Button halfCrit;
@@ -51,6 +53,8 @@ public class AttackActivity extends Activity implements View.OnClickListener
         init();
         //initializes the buttons to go to other activities
         portalInit();
+
+        swipeLR();
     }
 
     private void init()
@@ -200,5 +204,23 @@ public class AttackActivity extends Activity implements View.OnClickListener
         });
     }
 
+    private void swipeLR(){
+        screen = findViewById(R.id.layout_Main);
 
+        screen.setOnTouchListener(new OnSwipeTouchListener(AttackActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent i = new Intent(AttackActivity.this, PositionActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeLeft() {
+                Intent i = new Intent(AttackActivity.this, DefenseActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
+    }
 }

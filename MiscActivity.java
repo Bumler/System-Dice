@@ -18,6 +18,7 @@ import static java.lang.String.*;
  */
 public class MiscActivity extends Activity implements View.OnClickListener{
 
+    private View screen;
     //intent buttons
     private Button goTo2d6;
     private Button goToPosition;
@@ -31,6 +32,7 @@ public class MiscActivity extends Activity implements View.OnClickListener{
 
         init();
         portalInit();
+        swipeLR();
     }
 
     private void init() {
@@ -93,5 +95,25 @@ public class MiscActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
+    }
+
+    private void swipeLR(){
+        screen = findViewById(R.id.layout_Main);
+
+        screen.setOnTouchListener(new OnSwipeTouchListener(MiscActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent i = new Intent(MiscActivity.this, DefenseActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeLeft() {
+                Intent i = new Intent(MiscActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
     }
 }

@@ -165,6 +165,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             public void onSwipeTop() {
             }
             public void onSwipeRight() {
+                Intent i = new Intent(MainActivity.this, MiscActivity.class);
+                startActivity(i);
             }
             public void onSwipeLeft() {
                 Intent i = new Intent(MainActivity.this, PositionActivity.class);

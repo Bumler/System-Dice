@@ -30,6 +30,8 @@ public class DefenseActivity extends Activity implements View.OnClickListener
 
     private TextView dTotal;
 
+    private View screen;
+
     private Button btnRollD;
     //intent buttons
     private Button goTo2d6;
@@ -45,6 +47,7 @@ public class DefenseActivity extends Activity implements View.OnClickListener
 
         init();
         portalInit();
+        swipeLR();
     }
 
     private void init() {
@@ -141,5 +144,25 @@ public class DefenseActivity extends Activity implements View.OnClickListener
         Toast toast = Toast.makeText(this, "Roll Successful", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0,450);
         toast.show();
+    }
+
+    private void swipeLR(){
+        screen = findViewById(R.id.layout_Main);
+
+        screen.setOnTouchListener(new OnSwipeTouchListener(DefenseActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent i = new Intent(DefenseActivity.this, AttackActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeLeft() {
+                Intent i = new Intent(DefenseActivity.this, MiscActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
     }
 }

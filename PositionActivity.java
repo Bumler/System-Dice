@@ -30,6 +30,8 @@ public class PositionActivity extends Activity implements View.OnClickListener {
     private TextView ResultName;
     private TextView ResultMod;
 
+    private View screen;
+
     //intent buttons
     private Button goTo2d6;
     private Button goToPosition;
@@ -44,6 +46,7 @@ public class PositionActivity extends Activity implements View.OnClickListener {
 
         init();
         portalInit();
+        swipeLR();
     }
 
     private void init() {
@@ -149,6 +152,26 @@ public class PositionActivity extends Activity implements View.OnClickListener {
                 Intent i = new Intent(PositionActivity.this, MiscActivity.class);
                 startActivity(i);
             }
+        });
+    }
+
+    private void swipeLR(){
+        screen = findViewById(R.id.layout_Main);
+
+        screen.setOnTouchListener(new OnSwipeTouchListener(PositionActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                Intent i = new Intent(PositionActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeLeft() {
+                Intent i = new Intent(PositionActivity.this, AttackActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeBottom() {
+            }
+
         });
     }
 }
