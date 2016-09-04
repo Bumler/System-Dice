@@ -1,6 +1,8 @@
 package com.example.isstech.systemdice;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;

@@ -5,15 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private EditText txtModifier;
 
+    private View screen;
     //---------------------------
     //Portal variables
     private Button goTo2d6;
@@ -43,6 +48,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         init();
         portalInit();
+        swipeLR();
     }
 
     private void init()
@@ -151,4 +157,23 @@ public class MainActivity extends Activity implements View.OnClickListener{
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0,-200);
         toast.show();
     }
+
+    private void swipeLR(){
+        screen = findViewById(R.id.layout1);
+
+        screen.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+            }
+            public void onSwipeLeft() {
+                Intent i = new Intent(MainActivity.this, PositionActivity.class);
+                startActivity(i);
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
+    }
+
 }
