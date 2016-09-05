@@ -35,6 +35,13 @@ public class AttackActivity extends Activity implements View.OnClickListener
     private Button crit;
     private Button halfCrit;
 
+    private Button p1;
+    private Button p2;
+    private Button p3;
+    private Button m1;
+    private Button m2;
+    private Button m3;
+
     private Button btnRollD;
 
     //intent buttons
@@ -51,6 +58,7 @@ public class AttackActivity extends Activity implements View.OnClickListener
 
         //initializes the buttons
         init();
+        dModifiers();
         //initializes the buttons to go to other activities
         portalInit();
 
@@ -136,23 +144,24 @@ public class AttackActivity extends Activity implements View.OnClickListener
     @Override
     public void onClick(View view)
     {
-        String dieNum = dice.getText().toString();
-        update(dieNum);
-
-        if (!first){
-            explode.setEnabled(true);
-        }
-
-        //set dice to 0 if no number is given
-        if(dice.getText().length() == 0)
-        {
-            dieNum = "0";
-        }
-
-        first = false;
-
-        //number of attack dice
-        D = Integer.parseInt(dieNum);
+        checkD();
+//        String dieNum = dice.getText().toString();
+//        update(dieNum);
+//
+//        if (!first){
+//            explode.setEnabled(true);
+//        }
+//
+//        //set dice to 0 if no number is given
+//        if(dice.getText().length() == 0)
+//        {
+//            dieNum = "0";
+//        }
+//
+//        first = false;
+//
+//        //number of attack dice
+//        D = Integer.parseInt(dieNum);
 
         //dice by default are set to no explosions
         dDice = new dice(D, 0);
@@ -202,6 +211,73 @@ public class AttackActivity extends Activity implements View.OnClickListener
                 //Toast.makeText(this,"Crit Complete",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void dModifiers(){
+        checkD();
+
+        p1 = (Button) findViewById(R.id.p1);
+        p1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D+1));
+            }
+        });
+        p2 = (Button) findViewById(R.id.p2);
+        p2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D+2));
+            }
+        });
+        p3 = (Button) findViewById(R.id.p3);
+        p3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D+3));
+            }
+        });
+        m1 = (Button) findViewById(R.id.m1);
+        m1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D-1));
+            }
+        });
+        m2 = (Button) findViewById(R.id.m2);
+        m2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D-2));
+            }
+        });
+        m3 = (Button) findViewById(R.id.m3);
+        m3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                checkD();
+                dice.setText(valueOf(D-3));
+            }
+        });
+    }
+
+    private void checkD(){
+        String dieNum = dice.getText().toString();
+        update(dieNum);
+
+        //set dice to 0 if no number is given
+        if(dice.getText().length() == 0)
+        {
+            dieNum = "0";
+        }
+
+        //number of attack dice
+        D = Integer.parseInt(dieNum);
     }
 
     private void swipeLR(){
