@@ -32,6 +32,7 @@ public class AttackActivity extends Activity implements View.OnClickListener
     private View screen;
 
     private Button explode;
+    private Button doubleE;
     private Button crit;
     private Button halfCrit;
 
@@ -108,15 +109,6 @@ public class AttackActivity extends Activity implements View.OnClickListener
             }
         });
 
-//        goToAttack = (Button) findViewById(R.id.attackIntent);
-//        goToAttack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(AttackActivity.this, AttackActivity.class);
-//                startActivity(i);
-//            }
-//        });
-
         goToDefense = (Button) findViewById(R.id.defenseIntent);
         goToDefense.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,23 +137,13 @@ public class AttackActivity extends Activity implements View.OnClickListener
     public void onClick(View view)
     {
         checkD();
-//        String dieNum = dice.getText().toString();
-//        update(dieNum);
-//
-//        if (!first){
-//            explode.setEnabled(true);
-//        }
-//
-//        //set dice to 0 if no number is given
-//        if(dice.getText().length() == 0)
-//        {
-//            dieNum = "0";
-//        }
-//
-//        first = false;
-//
-//        //number of attack dice
-//        D = Integer.parseInt(dieNum);
+
+        if (!first){
+            explode.setEnabled(true);
+            doubleE.setEnabled(true);
+        }
+
+        first = false;
 
         //dice by default are set to no explosions
         dDice = new dice(D, 0);
@@ -182,6 +164,21 @@ public class AttackActivity extends Activity implements View.OnClickListener
                 dTotal.setText(valueOf(damTotal));
                 //Toast.makeText(this,"Mini-Crit Complete",Toast.LENGTH_LONG).show();
                 explode.setEnabled(false);
+                doubleE.setEnabled(false);
+            }
+        });
+
+        doubleE = (Button) findViewById(R.id.Double);
+        doubleE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dDice.setExplosion(2);
+                int damTotal = dDice.totalDamage();
+
+                damageBreakdown.setText(dDice.getDamageBreakdown());
+                dTotal.setText(valueOf(damTotal));
+                explode.setEnabled(false);
+                doubleE.setEnabled(false);
             }
         });
 
