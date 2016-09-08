@@ -127,8 +127,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             modVal = "0";
         }
         int mod = Integer.parseInt(modVal);
-        die die1 = new die();
-        die die2 = new die();
+        d6 die1 = new d6();
+        d6 die2 = new d6();
         int total = mod + die1.getFace() + die2.getFace();
 
         GrandTotal.setText("Total: " + valueOf(total));

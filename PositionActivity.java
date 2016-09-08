@@ -66,9 +66,9 @@ public class PositionActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick (View view)
     {
-        die die1 = new die();
-        die die2 = new die();
-        die die3 = new die();
+        d6 die1 = new d6();
+        d6 die2 = new d6();
+        d6 die3 = new d6();
         int dieTotal = die1.getFace() + die2.getFace() + die3.getFace();
 
         Res1.setText(""+die1.getFace()+"");

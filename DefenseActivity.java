@@ -132,7 +132,7 @@ public class DefenseActivity extends Activity implements View.OnClickListener
         }
         int D = Integer.parseInt(dieNum);
 
-        dice defDice = new dice(D, 0);
+        dice defDice = new dice(D, 0, 6);
 
         int defTotal = defDice.totalDamage();
 

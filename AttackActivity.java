@@ -146,7 +146,7 @@ public class AttackActivity extends Activity implements View.OnClickListener
         first = false;
 
         //dice by default are set to no explosions
-        dDice = new dice(D, 0);
+        dDice = new dice(D, 0, 6);
         int damTotal = dDice.totalDamage();
         damageBreakdown.setText(dDice.getDamageBreakdown());
         dTotal.setText(valueOf(damTotal));

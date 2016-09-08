@@ -1,6 +1,6 @@
 package com.example.isstech.systemdice;
 
-public class d6 {
+public class d6 implements die{
     int face = 0;
 
     public d6(){
