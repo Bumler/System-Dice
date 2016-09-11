@@ -17,7 +17,7 @@ public class dice {
     //type represents d2,d3 or d6
     public dice(int inp, int explode, int typeIn) {
         this.explode = explode;
-        typeIn = type;
+        type = typeIn;
 
         for (int i = 0; i < inp; i++) {
             addDie();
