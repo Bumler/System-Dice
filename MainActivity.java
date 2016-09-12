@@ -41,6 +41,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button goToDefense;
     private Button goToMisc;
 
+    int mod;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,13 +121,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        String modVal = txtModifier.getText().toString();
-        update(modVal);
-        if(txtModifier.getText().length() == 0)
-        {
-            modVal = "0";
-        }
-        int mod = Integer.parseInt(modVal);
+        checkMod();
         d6 die1 = new d6();
         d6 die2 = new d6();
         int total = mod + die1.getFace() + die2.getFace();
@@ -163,6 +158,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         screen.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             public void onSwipeTop() {
+                checkMod();
+                txtModifier.setText(valueOf(mod + 1));
             }
             public void onSwipeRight() {
                 Intent i = new Intent(MainActivity.this, MiscActivity.class);
@@ -173,9 +170,20 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 startActivity(i);
             }
             public void onSwipeBottom() {
+                checkMod();
+                txtModifier.setText(valueOf(mod - 1));
             }
 
         });
     }
 
+    private void checkMod(){
+        String modVal = txtModifier.getText().toString();
+        update(modVal);
+        if(txtModifier.getText().length() == 0)
+        {
+            modVal = "0";
+        }
+        mod = Integer.parseInt(modVal);
+    }
 }

@@ -26,7 +26,7 @@ public class DefenseActivity extends Activity implements View.OnClickListener
 {
 
     private EditText dice;
-    int D;
+    private int D;
 
     private TextView dTotal;
 
@@ -123,14 +123,7 @@ public class DefenseActivity extends Activity implements View.OnClickListener
     
     @Override
     public void onClick(View v) {
-        String dieNum = dice.getText().toString();
-        update(dieNum);
-
-        if(dice.getText().length() == 0)
-        {
-            dieNum = "0";
-        }
-        int D = Integer.parseInt(dieNum);
+        checkDieNum();
 
         dice defDice = new dice(D, 0, 6);
 
@@ -151,6 +144,8 @@ public class DefenseActivity extends Activity implements View.OnClickListener
 
         screen.setOnTouchListener(new OnSwipeTouchListener(DefenseActivity.this) {
             public void onSwipeTop() {
+                checkDieNum();
+                dice.setText(valueOf(D + 1));
             }
             public void onSwipeRight() {
                 Intent i = new Intent(DefenseActivity.this, AttackActivity.class);
@@ -161,8 +156,21 @@ public class DefenseActivity extends Activity implements View.OnClickListener
                 startActivity(i);
             }
             public void onSwipeBottom() {
+                checkDieNum();
+                dice.setText(valueOf(D - 1));
             }
 
         });
+    }
+
+    private void checkDieNum(){
+        String dieNum = dice.getText().toString();
+        update(dieNum);
+
+        if(dice.getText().length() == 0)
+        {
+            dieNum = "0";
+        }
+        D = Integer.parseInt(dieNum);
     }
 }
